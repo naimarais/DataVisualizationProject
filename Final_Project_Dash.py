@@ -95,8 +95,8 @@ def update_output_container(selected_statistics, input_year):
         R_chart3 = dcc.Grapgh(figure=px.pie(exp_rec, names="Vehicle_Type", values="Advertising_Expenditure", title= "Total Expenditure Share By Vehicle Type during Recession"))
 
 # Plot 4 bar chart for the effect of unemployment rate on vehicle type and sales
-        unemp_rate= recession_data.groupby("Vehicle_Type")["unemployment_rate"].mean().reset_index()
-        R_chart4 = dcc.Grapgh( figure=px.bar (unemp_rate, x= "Vehicle_Type", y= "unemployment_rate", title="Effect of Unemployment Rate on Vehicle Type and Sales"))
+        unemp_rate= recession_data.groupby(['unemployment_rate', 'Vehicle_Type'])['Automobile_Sales'].mean().reset_index()
+        R_chart4 = dcc.Grapgh( figure=px.bar (unemp_rate, x= 'unemployment_rate', y= 'Automobile_Sales', title="Effect of Unemployment Rate on Vehicle Type and Sales"))
 
         return [
             html.Div(className='chart-item', children=[html.Div(children=R_chart1),html.Div(children=R_chart2)],style={'display':'flex'}),
