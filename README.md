@@ -1,4 +1,4 @@
 # DataVisualizationProject
 
-Workef with Folium and Choropleth map.
+Worked with Folium and Choropleth map.
 Created Dash board.
